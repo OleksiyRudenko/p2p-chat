@@ -1,3 +1,12 @@
+:root {
+  --bg-color: #333;
+  --bg-color-accented: #335;
+  --bg-color-darker: #222;
+  --color: #fff;
+  --color-accented: #0064c8;
+  --color-secondary: #666;
+}
+
 html, body {
   position: relative;
   width: 100%;
@@ -5,7 +14,7 @@ html, body {
 }
 
 body {
-  background-color: #333;
+  background-color: var(--bg-color);
   color: white;
   margin: 0;
   padding: 0;
@@ -21,7 +30,7 @@ body {
 }
 
 a {
-  color: rgb(0,100,200);
+  color: var(--color-accented);
   text-decoration: none;
 }
 
@@ -30,7 +39,7 @@ a:hover {
 }
 
 a:visited {
-  color: rgb(0,80,160);
+  color: var(--bg-color-accented);
 }
 
 label {
@@ -43,12 +52,12 @@ input, button, select, textarea {
   padding: 0.4em;
   margin: 0 0 0.5em 0;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid var(--bg-color-darker);
   border-radius: 2px;
 }
 
 input:disabled {
-  color: #ccc;
+  color: var(--color-secondary);
 }
 
 input[type="range"] {
@@ -56,17 +65,17 @@ input[type="range"] {
 }
 
 button {
-  color: #333;
-  background-color: #f4f4f4;
+  color: var(--color);
+  background-color: var(--bg-color-darker);
   outline: none;
 }
 
 button:disabled {
-  color: #999;
+  color: var(--color-secondary);
 }
 
 button:not(:disabled):active {
-  background-color: #ddd;
+  background-color: var(--bg-color-accented);
 }
 
 button:focus {
