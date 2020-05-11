@@ -1,4 +1,6 @@
 /node_modules/
 /public/build/
-
+.netlify
+radata
+public/serviceworker.js
 .DS_Store

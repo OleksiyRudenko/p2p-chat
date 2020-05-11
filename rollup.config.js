@@ -1,10 +1,27 @@
 import svelte from 'rollup-plugin-svelte';
+import replace from "@rollup/plugin-replace";
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
+import pkg from "./package.json";
 
-const production = !process.env.ROLLUP_WATCH;
+const commitHash = require("child_process")
+  .execSync('git log --pretty=format:"%h" -n1')
+  .toString()
+  .trim();
+
+const fallbackMode = process.env.ROLLUP_WATCH ? "development" : "production";
+const mode = process.env.NODE_ENV || fallbackMode;
+
+const vars = {
+  "process.env.NODE_ENV": JSON.stringify(mode),
+  "process.env.COMMIT_HASH": JSON.stringify(commitHash),
+  "process.env.APP_VERSION": JSON.stringify(pkg.version),
+};
+
+const production = mode === "production";
+// const production = !process.env.ROLLUP_WATCH;
 
 export default {
 	input: 'src/main.js',
@@ -15,6 +32,10 @@ export default {
 		file: 'public/build/bundle.js'
 	},
 	plugins: [
+    replace({
+      "process.browser": true,
+      ...vars,
+    }),
 		svelte({
 			// enable run-time checks when not in production
 			dev: !production,
