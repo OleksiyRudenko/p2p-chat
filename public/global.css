@@ -1,6 +1,7 @@
 :root {
   --bg-color: #333;
   --bg-color-accented: #335;
+  --bg-color-lighter: #444;
   --bg-color-darker: #222;
   --color: #fff;
   --color-accented: #0064c8;
@@ -14,7 +15,7 @@ html, body {
 }
 
 body {
-  background-color: var(--bg-color);
+  background-color: var(--bg-color-darker);
   color: white;
   margin: 0;
   padding: 0;
@@ -79,5 +80,5 @@ button:not(:disabled):active {
 }
 
 button:focus {
-  border-color: #666;
+  border-color: var(--color-secondary);
 }

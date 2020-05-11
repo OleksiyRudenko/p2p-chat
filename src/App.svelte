@@ -1,5 +1,5 @@
 <script>
-
+  import { getNavigatorLanguage } from "./utils"
 </script>
 
 <main>
@@ -8,7 +8,7 @@
 <style>
   main {
     padding: 1rem;
-    background-color: #444;
+    background-color: var(--bg-color-lighter);
     color: white;
     width: 100%;
     height: 100%;
