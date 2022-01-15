@@ -17,7 +17,7 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "marked": "^1.0.0",
+    "marked": "^4.0.10",
     "sirv-cli": "^0.4.4",
     "svelte-click-outside": "^1.0.0"
   }
